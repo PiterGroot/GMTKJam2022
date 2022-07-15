@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public List<Transform> wayPoints = new List<Transform>();
+    private List<Transform> wayPoints = new List<Transform>();
 
     private void Start()
     {
