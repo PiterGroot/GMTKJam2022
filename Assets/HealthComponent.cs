@@ -21,7 +21,7 @@ public class HealthComponent : MonoBehaviour
     public void RemoveHealth(float amount)
     {
         currentHealth -= amount;
-        if(currentHealth < 0)
+        if(currentHealth <= 0)
         {
             onDie?.Invoke();
         }

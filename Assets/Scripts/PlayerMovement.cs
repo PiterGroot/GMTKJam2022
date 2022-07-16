@@ -21,8 +21,16 @@ public class PlayerMovement : MonoBehaviour
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
 
-        if (movement.x > 0) spriteRenderer.flipX = true;
-        else if (movement.x < 0) spriteRenderer.flipX = false;
+        Vector3 characterScale = transform.localScale;
+        if (movement.x > 0)
+        {
+            characterScale.x = -1;
+        }
+        if (movement.x < 0)
+        {
+            characterScale.x = 1;
+        }
+        transform.localScale = characterScale;
     }
 
     private void FixedUpdate()
