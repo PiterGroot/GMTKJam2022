@@ -27,7 +27,7 @@ public class PathFollower : MonoBehaviour
         HandleRotation();
         if(Vector2.Distance(transform.position, currentWayPoint.transform.position) > .1f)
         {
-            transform.Translate(rotationPoint.transform.right * moveSpeed * Time.fixedDeltaTime);
+            transform.Translate(rotationPoint.transform.right * moveSpeed * Time.deltaTime);
         }
         else
         { 

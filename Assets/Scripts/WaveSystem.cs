@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class WaveSystem : MonoBehaviour
 {
+    public bool isInWave;
     private int currentWave = -1;
     private GameManager gameManager;
     private Vector2 spawnPos;
@@ -26,6 +27,7 @@ public class WaveSystem : MonoBehaviour
         currentWave++;
         if (currentWave < waves.Length)
         {
+            isInWave = true;
             StartCoroutine(SpawnEnemy());
         }
         else
@@ -40,6 +42,7 @@ public class WaveSystem : MonoBehaviour
             GameObject enemy = Instantiate(waves[currentWave].Enemy[i], spawnPos, Quaternion.identity);
             yield return new WaitForSeconds(spawnInterval);
         }
+        isInWave = false;
         Invoke(nameof(WaveLoop), waveInterval);
     }
 }
