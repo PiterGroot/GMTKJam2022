@@ -14066,7 +14066,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!60 &2093828800
 PolygonCollider2D:
@@ -14292,11 +14292,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1596940765600252590, guid: b1f4fec35ecb4d742a5f065f5c43b236, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.88
+      value: -2.47
       objectReference: {fileID: 0}
     - target: {fileID: 1596940765600252590, guid: b1f4fec35ecb4d742a5f065f5c43b236, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.6
+      value: 0.57
       objectReference: {fileID: 0}
     - target: {fileID: 1596940765600252590, guid: b1f4fec35ecb4d742a5f065f5c43b236, type: 3}
       propertyPath: m_LocalPosition.z
