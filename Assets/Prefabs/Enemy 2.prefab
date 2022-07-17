@@ -49,8 +49,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74b4d371a4ad3e04da469a49f3e55b80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 1
-  slowMoveSpeed: 0
+  moveSpeed: 10
+  slowMoveSpeed: 0.5
 --- !u!212 &6403984343315250308
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -130,7 +130,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   currentHealth: 0
-  maxHealth: 5
+  maxHealth: 1
 --- !u!61 &1616614958602827723
 BoxCollider2D:
   m_ObjectHideFlags: 0
