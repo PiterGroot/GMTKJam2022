@@ -5,12 +5,15 @@ using UnityEngine;
 public class Arrow : MonoBehaviour
 {
     [HideInInspector] public float damage;
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.collider.CompareTag("Enemy"))
+        if (collision.CompareTag("Enemy"))
         {
             collision.gameObject.GetComponent<HealthComponent>().RemoveHealth(damage);
+            collision.gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            collision.gameObject.GetComponent<Rigidbody2D>().angularVelocity = 0;
             Destroy(gameObject);
         }
     }
+   
 }
