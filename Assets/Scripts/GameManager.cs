@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] public Animator anim;
     [SerializeField] private float towerPrice;
     public GameObject bleedParticleEffect;
+    public bool canBuild;
     private void Start()
     {
         wallet = gameObject.GetComponent<Wallet>();
@@ -35,7 +36,8 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Mouse1))
         {
-            if(wallet.GetMoney() >= towerPrice && !isRolling){
+            if(wallet.GetMoney() >= towerPrice && !isRolling && canBuild)
+            {
                 anim.runtimeAnimatorController = rollAnim;
                 wallet.RemoveMoney(towerPrice);
                 isRolling = true;

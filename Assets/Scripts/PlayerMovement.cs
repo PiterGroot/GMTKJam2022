@@ -44,7 +44,13 @@ public class PlayerMovement : MonoBehaviour
     {
         rb2d.MovePosition(transform.position + movement * moveSpeed * Time.fixedDeltaTime);
     }
-
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Pathblocker"))
+        {
+            FindObjectOfType<GameManager>().canBuild = false;
+        }
+    }
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.CompareTag("Buff"))
@@ -67,6 +73,10 @@ public class PlayerMovement : MonoBehaviour
         if (collision.CompareTag("Speed"))
         {
             moveSpeed = startMoveSpeed;
+        }
+        if (collision.CompareTag("Pathblocker"))
+        {
+            FindObjectOfType<GameManager>().canBuild = true;
         }
     }
 

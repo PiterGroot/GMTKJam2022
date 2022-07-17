@@ -8,6 +8,7 @@ TagManager:
   - Buff
   - Slow
   - Speed
+  - Pathblocker
   layers:
   - Default
   - TransparentFX
