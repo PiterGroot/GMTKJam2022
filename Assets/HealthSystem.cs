@@ -33,11 +33,4 @@ public class HealthSystem : MonoBehaviour
         //die
         SceneManager.LoadScene("Lose");
     }
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            RemoveHealth(1);
-        }
-    }
 }

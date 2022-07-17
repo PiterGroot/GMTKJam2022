@@ -47,6 +47,8 @@ public class PathFollower : MonoBehaviour
         }
         catch
         {
+            if(gameObject.name == "Boss") FindObjectOfType<HealthSystem>().RemoveHealth(5);
+            else FindObjectOfType<HealthSystem>().RemoveHealth(1);
             Destroy(gameObject);
         }
     }
