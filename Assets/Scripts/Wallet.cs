@@ -12,7 +12,7 @@ public class Wallet : MonoBehaviour
 
     private void Awake()
     {
-        if (GODMODE) AddMoney(9999);
+        if (GODMODE) AddMoney(100);
     }
     public void AddMoney(float amount)
     {
