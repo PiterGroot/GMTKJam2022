@@ -27,11 +27,11 @@ public class PlayerMovement : MonoBehaviour
         Vector3 characterScale = transform.localScale;
         if (movement.x > 0)
         {
-            characterScale.x = -1;
+            characterScale.x = 1;
         }
         if (movement.x < 0)
         {
-            characterScale.x = 1;
+            characterScale.x = -1;
         }
         transform.localScale = characterScale;
     }
