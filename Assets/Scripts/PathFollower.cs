@@ -11,10 +11,12 @@ public class PathFollower : MonoBehaviour
     private Transform rotationPoint;
     private Rigidbody2D rb2d;
     private GameManager gameManager;
-    [SerializeField] private float moveSpeed;
+    private float startMoveSpeed;
+    [SerializeField] public float moveSpeed, slowMoveSpeed;
     // Start is called before the first frame update
     void Start()
     {
+        startMoveSpeed = moveSpeed;
         rotationPoint = transform.GetChild(0);
         rb2d = gameObject.GetComponent<Rigidbody2D>();
         gameManager = FindObjectOfType<GameManager>();
@@ -46,6 +48,13 @@ public class PathFollower : MonoBehaviour
         catch
         {
             Destroy(gameObject);
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Slow"))
+        {
+            moveSpeed = startMoveSpeed;
         }
     }
 

@@ -6,8 +6,14 @@ using UnityEngine.UI;
 
 public class Wallet : MonoBehaviour
 {
+    public bool GODMODE;
     private float currentMoney;
     [SerializeField] private Text moneyText;
+
+    private void Awake()
+    {
+        if (GODMODE) AddMoney(9999);
+    }
     public void AddMoney(float amount)
     {
         currentMoney += amount;
@@ -19,7 +25,10 @@ public class Wallet : MonoBehaviour
         if (currentMoney < 0) currentMoney = 0;
         UpdateUI();
     }
-
+    public float GetMoney()
+    {
+        return currentMoney;
+    }
     private void UpdateUI()
     {
         moneyText.text = currentMoney.ToString();
