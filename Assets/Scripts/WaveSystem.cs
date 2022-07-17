@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class WaveSystem : MonoBehaviour
 {
@@ -49,6 +50,7 @@ public class WaveSystem : MonoBehaviour
         if (currentWave == waves.Length && enemies.Count == 0)
         {
             print("Victory");
+            SceneManager.LoadScene("Victory");
         }
     }
 }
