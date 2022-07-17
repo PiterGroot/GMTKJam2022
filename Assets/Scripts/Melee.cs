@@ -5,6 +5,7 @@ using UnityEngine;
 public class Melee : MonoBehaviour
 {
     public float damage;
+    [HideInInspector]public bool isBuffed;
     [HideInInspector]public bool canAttack = true;
     [HideInInspector]public bool isAttacking;
     [SerializeField] private Animator anim;

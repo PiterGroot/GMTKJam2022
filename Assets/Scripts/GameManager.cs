@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     private List<Transform> wayPoints = new List<Transform>();
-
+    public GameObject bleedParticleEffect;
     private void Start()
     {
         GetAllWayPoints();
