@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -2872408895862756195}
   - component: {fileID: 1616614958602827723}
   - component: {fileID: 5132979878711642705}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Boss
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -49,6 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 1
+  slowMoveSpeed: 0
 --- !u!212 &6403984343315250308
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -88,7 +89,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 100
   m_Sprite: {fileID: -2304087622391210198, guid: 9ae91315e113a2b45af3a42b96b05021, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

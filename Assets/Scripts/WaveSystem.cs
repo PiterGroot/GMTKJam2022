@@ -14,6 +14,8 @@ public class WaveSystem : MonoBehaviour
     [SerializeField] private float spawnInterval = 1;
     [SerializeField] private float waveInterval = 5;
     [SerializeField] private Wave[] waves;
+
+    public List<GameObject> enemies = new List<GameObject>();
     // Start is called before the first frame update
     void Start()
     {
@@ -30,20 +32,24 @@ public class WaveSystem : MonoBehaviour
             isInWave = true;
             StartCoroutine(SpawnEnemy());
         }
-        else
-        {
-            print("Victory");
-        }
     }
     private IEnumerator SpawnEnemy()
     {
         for (int i = 0; i < waves[currentWave].Enemy.Length; i++)
         {
             GameObject enemy = Instantiate(waves[currentWave].Enemy[i], spawnPos, Quaternion.identity);
+            enemies.Add(enemy);
             yield return new WaitForSeconds(spawnInterval);
         }
         isInWave = false;
         Invoke(nameof(WaveLoop), waveInterval);
+    }
+    private void Update()
+    {
+        if (currentWave == waves.Length && enemies.Count == 0)
+        {
+            print("Victory");
+        }
     }
 }
 
