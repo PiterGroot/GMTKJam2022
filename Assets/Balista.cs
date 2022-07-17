@@ -12,41 +12,58 @@ public class Balista : MonoBehaviour
     [SerializeField] private Animator anim;
     [SerializeField] private float shootRate;
     [SerializeField] private float damage;
-    [SerializeField] private Sprite shootSprite;
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        InvokeRepeating("DamageArea", 0, shootRate);
+        InvokeRepeating("UpdateTarget", 0, shootRate);
     }
     bool rotation;
-    private void DamageArea()
+    
+    private Transform Target;
+    void UpdateTarget()
     {
-        Collider2D hitColliders = Physics2D.OverlapCircle(transform.position, range);
-        if (hitColliders == null) return;
-        if (hitColliders.gameObject.CompareTag("Enemy"))
+        GameObject[] Enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        float shortestDistance = Mathf.Infinity;
+        GameObject nearestEnemy = null;
+
+        foreach (GameObject enemy in Enemies)
         {
-            anim.SetTrigger("BalistaHor");
-            ShootArrow();
-        }
-    }
-    private void Update()
-    {
-        if(Vector2.Distance(transform.position, player.transform.position) < .5)
-        {
-            if (Input.GetKeyDown(KeyCode.R))
+            float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
+            if (distanceToEnemy < shortestDistance)
             {
-                rotation = !rotation;
-                if (rotation) transform.localScale = new Vector3(-1.2f, 1.2f);
-                else transform.localScale = new Vector3(1.2f, 1.2f);
+                shortestDistance = distanceToEnemy;
+                nearestEnemy = enemy;
             }
         }
+
+        if (nearestEnemy != null && shortestDistance <= range)
+        {
+            Target = nearestEnemy.transform;
+            ShootArrow();
+        }
+        else
+        {
+            Target = null;
+        }
+
+    }
+    void Update()
+    {
+        if (Target == null)
+            return;
+
+        Vector2 dir = Target.position - transform.position;
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, 15 * Time.deltaTime);
     }
 
     private void ShootArrow()
     {
-        GameObject arrow = Instantiate(arrowPrefab, shootPoint.transform.position, shootPoint.rotation);
-        arrow.GetComponent<Rigidbody2D>().AddForce(shootPoint.up * 20, ForceMode2D.Impulse);
+        anim.SetTrigger("BalistaHor");
+        GameObject arrow = Instantiate(arrowPrefab, shootPoint.transform.position, transform.rotation);
+        arrow.GetComponent<Rigidbody2D>().AddForce(shootPoint.right * 20, ForceMode2D.Impulse);
         arrow.GetComponent<Arrow>().damage = damage;
     }
     private void OnDrawGizmosSelected()
