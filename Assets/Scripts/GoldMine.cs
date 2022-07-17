@@ -14,7 +14,7 @@ public class GoldMine : MonoBehaviour
     {
         if (canMine)
         {
-            Invoke("MineGold", Random.Range(1, 3));
+            Invoke("MineGold", Random.Range(4, 8));
         }
     }
     private void MineGold()

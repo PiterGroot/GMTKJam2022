@@ -101,7 +101,7 @@ MonoBehaviour:
   rangeOffset: {x: 0, y: -0.63, z: 0}
   damageAmount: 0
   damageTickRate: 1
-  range: 1.54
+  range: 3.57
 --- !u!58 &1357939763
 CircleCollider2D:
   m_ObjectHideFlags: 0

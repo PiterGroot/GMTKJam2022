@@ -26,7 +26,8 @@ public class HealthComponent : MonoBehaviour
         currentHealth -= amount;
         if(currentHealth <= 0)
         {
-            if (melee) FindObjectOfType<Wallet>().AddMoney(1);
+            if (melee) FindObjectOfType<Wallet>().AddMoney(10);
+            else FindObjectOfType<Wallet>().AddMoney(1);
             FindObjectOfType<WaveSystem>().enemies.Remove(gameObject);
             onDie?.Invoke();
         }
