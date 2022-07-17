@@ -13144,9 +13144,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shootPoint: {fileID: 1896727740}
   arrowPrefab: {fileID: 2553322217234674111, guid: 50c71ca25115d4d47a5f75749d250935, type: 3}
-  range: 2
+  range: 10
+  rotateRange: 1
   anim: {fileID: 910383020}
   shootRate: 1
+  damage: 2
+  shootSprite: {fileID: 0}
 --- !u!1 &1013505403
 GameObject:
   m_ObjectHideFlags: 0
@@ -13864,7 +13867,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1896727739}
   m_LocalRotation: {x: -0, y: -0, z: 0.34447905, w: 0.938794}
-  m_LocalPosition: {x: -0.38, y: 0.4, z: 0}
+  m_LocalPosition: {x: -0.223, y: 0.168, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 910383022}
@@ -14227,7 +14230,7 @@ GameObject:
   - component: {fileID: 2093828802}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
