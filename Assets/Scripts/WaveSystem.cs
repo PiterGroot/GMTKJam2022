@@ -23,6 +23,8 @@ public class WaveSystem : MonoBehaviour
         if (startSpawningOnAwake) Invoke(nameof(WaveLoop), startTimer);
         gameManager = FindObjectOfType<GameManager>();
         spawnPos = gameManager.GetWayPoint(0).position;
+
+        InvokeRepeating(nameof(CheckVictory), 0, 2f);
     }
 
     private void WaveLoop()
@@ -33,7 +35,6 @@ public class WaveSystem : MonoBehaviour
             isInWave = true;
             StartCoroutine(SpawnEnemy());
         }
-        CheckVictory();
     }
     private IEnumerator SpawnEnemy()
     {
