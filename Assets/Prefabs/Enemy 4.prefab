@@ -50,7 +50,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 3
-  slowMoveSpeed: 0.5
+  slowMoveSpeed: 1.5
 --- !u!212 &6403984343315250308
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -130,7 +130,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   currentHealth: 0
-  maxHealth: 15
+  maxHealth: 22
 --- !u!61 &1616614958602827723
 BoxCollider2D:
   m_ObjectHideFlags: 0
