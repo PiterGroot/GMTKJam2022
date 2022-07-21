@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
                 isRolling = true;
                 //play sound
                 anim.SetTrigger("roll");
-                Invoke("Disable", 2.5f);
+                Invoke("Disable", 2f);
             }
         }
     }

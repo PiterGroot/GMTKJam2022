@@ -33,6 +33,7 @@ public class WaveSystem : MonoBehaviour
             isInWave = true;
             StartCoroutine(SpawnEnemy());
         }
+        CheckVictory();
     }
     private IEnumerator SpawnEnemy()
     {
@@ -45,9 +46,9 @@ public class WaveSystem : MonoBehaviour
         isInWave = false;
         Invoke(nameof(WaveLoop), waveInterval);
     }
-    private void Update()
+    private void CheckVictory()
     {
-        if (currentWave == waves.Length && enemies.Count == 0)
+        if (currentWave >= waves.Length && enemies.Count == 0)
         {
             print("Victory");
             SceneManager.LoadScene("Victory");

@@ -8,11 +8,12 @@ public class Wallet : MonoBehaviour
 {
     public bool GODMODE;
     private float currentMoney;
+    [SerializeField] private float godModeMoney = 100;
     [SerializeField] private Text moneyText;
 
     private void Awake()
     {
-        if (GODMODE) AddMoney(100);
+        if (GODMODE) AddMoney(godModeMoney);
     }
     public void AddMoney(float amount)
     {

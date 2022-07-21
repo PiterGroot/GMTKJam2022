@@ -9,6 +9,7 @@ TagManager:
   - Slow
   - Speed
   - Pathblocker
+  - Arrow
   layers:
   - Default
   - TransparentFX

@@ -14,6 +14,11 @@ public class Arrow : MonoBehaviour
             collision.gameObject.GetComponent<Rigidbody2D>().angularVelocity = 0;
             Destroy(gameObject);
         }
+        else if (!collision.CompareTag("Arrow") && !collision.CompareTag("Pathblocker")
+            && !collision.CompareTag("Speed") && !collision.CompareTag("Slow") && !collision.CompareTag("Buff"))
+        {
+            Destroy(gameObject);
+        }
     }
-   
+
 }

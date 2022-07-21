@@ -6,12 +6,12 @@ using UnityEngine;
 public class Balista : MonoBehaviour
 {
     private GameObject player;
-    [SerializeField] private Transform shootPoint;
-    [SerializeField] private GameObject arrowPrefab;
     [SerializeField] private float range, rotateRange;
-    [SerializeField] private Animator anim;
     [SerializeField] private float shootRate;
     [SerializeField] private float damage;
+    [SerializeField] private Animator anim;
+    [SerializeField] private GameObject arrowPrefab;
+    [SerializeField] private Transform[] shootPoints;
     // Start is called before the first frame update
     void Start()
     {
@@ -61,10 +61,19 @@ public class Balista : MonoBehaviour
 
     private void ShootArrow()
     {
+        //Quaternion e = transform.rotation  Quaternion.Euler(new Vector3(0, 15, 0));
         anim.SetTrigger("BalistaHor");
-        GameObject arrow = Instantiate(arrowPrefab, shootPoint.transform.position, transform.rotation);
-        arrow.GetComponent<Rigidbody2D>().AddForce(shootPoint.right * 20, ForceMode2D.Impulse);
-        arrow.GetComponent<Arrow>().damage = damage;
+        GameObject centerArrow = Instantiate(arrowPrefab, shootPoints[0].transform.position, transform.rotation);
+        GameObject leftArrow = Instantiate(arrowPrefab, shootPoints[1].transform.position, transform.rotation);
+        GameObject rightArrow = Instantiate(arrowPrefab, shootPoints[2].transform.position, transform.rotation);
+
+        centerArrow.GetComponent<Arrow>().damage = damage;
+        leftArrow.GetComponent<Arrow>().damage = damage;
+        rightArrow.GetComponent<Arrow>().damage = damage;
+
+        centerArrow.GetComponent<Rigidbody2D>().AddForce(shootPoints[0].right * 20, ForceMode2D.Impulse);
+        leftArrow.GetComponent<Rigidbody2D>().AddForce(shootPoints[1].right * 20, ForceMode2D.Impulse);
+        rightArrow.GetComponent<Rigidbody2D>().AddForce(shootPoints[2].right * 20, ForceMode2D.Impulse);
     }
     private void OnDrawGizmosSelected()
     {
